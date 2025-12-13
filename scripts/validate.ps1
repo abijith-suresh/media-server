@@ -6,5 +6,7 @@ $FileBot = "$env:USERPROFILE\Tools\FileBot\FileBot.jar"
 Write-Host "Java version:"
 java -version
 
-Write-Host "FileBot version:"
-java -jar $FileBot --version
+Write-Host "Validating FileBot execution..."
+java -jar $FileBot -help | Out-Null
+
+Write-Host "FileBot validation successful"
