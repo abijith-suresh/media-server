@@ -49,3 +49,20 @@ services:
       - ./config/portainer:/data
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
+
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    ports:
+      - "8080:8080"
+      - "6881:6881/tcp"
+      - "6881:6881/udp"
+    volumes:
+      - ./config/qbittorrent:/config
+      - D:/Torrents:/downloads
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - UMASK_SET=022
+    restart: unless-stopped
