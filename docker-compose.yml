@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    user: ${PUID}:${PGID}
+    ports:
+      - "${JELLYFIN_PORT}:8096"
+    volumes:
+      - ./config:/config
+      - ${MEDIA_PATH}/Movies:/media/movies:ro
+      - ${MEDIA_PATH}/TV:/media/tvshows:ro
+      - ${MEDIA_PATH}/Anime:/media/anime:ro
+    environment:
+      - TZ=${TZ}
+    restart: unless-stopped
+    networks:
+      - media-network
+
+networks:
+  media-network:
+    driver: bridge

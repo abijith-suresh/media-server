@@ -1,0 +1,4 @@
+config/
+*.log
+# Don't track large media
+D:\Media/
