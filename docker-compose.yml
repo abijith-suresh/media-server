@@ -1,18 +1,4 @@
 services:
-  jellyfin:
-    image: jellyfin/jellyfin:latest
-    container_name: jellyfin
-    ports:
-      - "${JELLYFIN_PORT}:8096"
-    volumes:
-      - ./config/jellyfin:/config
-      - ${MEDIA_PATH}/Movies:/media/movies:ro
-      - ${MEDIA_PATH}/TV:/media/tvshows:ro
-      - ${MEDIA_PATH}/Anime:/media/anime:ro
-    environment:
-      - TZ=${TZ}
-    restart: unless-stopped
-
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
