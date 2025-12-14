@@ -8,7 +8,6 @@ services:
       - ../../config/jellyfin:/config
       - ${MEDIA_PATH}/Movies:/media/movies:ro
       - ${MEDIA_PATH}/TV:/media/tv:ro
-      - ${MEDIA_PATH}/Anime:/media/anime:ro
     environment:
       - TZ=${TZ}
     networks:
