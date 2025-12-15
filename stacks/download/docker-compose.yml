@@ -50,7 +50,7 @@ services:
       - "9696:9696"
     volumes:
       - ../../config/prowlarr:/config
-      - D:/data:/data
+      - ${DATA_PATH}:/data
     environment:
       - TZ=${TZ}
     networks:
