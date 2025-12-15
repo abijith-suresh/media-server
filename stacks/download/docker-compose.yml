@@ -43,6 +43,20 @@ services:
       - media-net
     restart: unless-stopped
 
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    ports:
+      - "9696:9696"
+    volumes:
+      - ../../config/prowlarr:/config
+      - D:/data:/data
+    environment:
+      - TZ=${TZ}
+    networks:
+      - media-net
+    restart: unless-stopped
+
 networks:
   media-net:
     external: true
