@@ -8,7 +8,7 @@ services:
       - "6881:6881/udp"
     volumes:
       - ../../config/qbittorrent:/config
-      - ${TORRENTS_PATH}:/downloads
+      - ${DATA_PATH}/torrents:/data/torrents
     environment:
       - TZ=${TZ}
     networks:
@@ -23,7 +23,7 @@ services:
     volumes:
       - ../../config/sonarr:/config
       - ${MEDIA_PATH}/TV:/tv
-      - ${TORRENTS_PATH}:/downloads
+      - ${DATA_PATH}:/data
     environment:
       - TZ=${TZ}
     networks:
@@ -38,7 +38,7 @@ services:
     volumes:
       - ../../config/radarr:/config
       - ${MEDIA_PATH}/Movies:/movies
-      - ${TORRENTS_PATH}:/downloads
+      - ${DATA_PATH}:/data
     environment:
       - TZ=${TZ}
     networks:

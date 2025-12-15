@@ -6,8 +6,8 @@ services:
       - "${JELLYFIN_PORT}:8096"
     volumes:
       - ../../config/jellyfin:/config
-      - ${MEDIA_PATH}/Movies:/media/movies:ro
-      - ${MEDIA_PATH}/TV:/media/tv:ro
+      - ${DATA_PATH}/media/movies:/media/movies:ro
+      - ${DATA_PATH}/media/shows:/media/shows:ro
     environment:
       - TZ=${TZ}
     networks:
