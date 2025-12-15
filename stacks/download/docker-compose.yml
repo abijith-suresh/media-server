@@ -22,7 +22,6 @@ services:
       - "8989:8989"
     volumes:
       - ../../config/sonarr:/config
-      - ${MEDIA_PATH}/TV:/tv
       - ${DATA_PATH}:/data
     environment:
       - TZ=${TZ}
@@ -37,7 +36,6 @@ services:
       - "7878:7878"
     volumes:
       - ../../config/radarr:/config
-      - ${MEDIA_PATH}/Movies:/movies
       - ${DATA_PATH}:/data
     environment:
       - TZ=${TZ}
