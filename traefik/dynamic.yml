@@ -36,6 +36,24 @@ http:
         - web
       service: qbittorrent
 
+    bazarr:
+      rule: "Host(`bazarr.local`)"
+      entrypoints:
+        - web
+      service: bazarr
+
+    overseerr:
+      rule: "Host(`overseerr.local`)"
+      entrypoints:
+        - web
+      service: overseerr
+
+    portainer:
+      rule: "Host(`portainer.local`)"
+      entrypoints:
+        - web
+      service: portainer
+
   services:
     traefik:
       loadBalancer:
@@ -66,3 +84,18 @@ http:
       loadBalancer:
         servers:
           - url: "http://qbittorrent:8080"
+
+    bazarr:
+      loadBalancer:
+        servers:
+          - url: "http://bazarr:6767"
+
+    overseerr:
+      loadBalancer:
+        servers:
+          - url: "http://overseerr:5055"
+
+    portainer:
+      loadBalancer:
+        servers:
+          - url: "http://portainer:9000"
