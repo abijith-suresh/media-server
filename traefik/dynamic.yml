@@ -1,0 +1,68 @@
+http:
+  routers:
+    traefik:
+      rule: "Host(`traefik.local`)"
+      entrypoints:
+        - web
+      service: traefik
+
+    jellyfin:
+      rule: "Host(`jellyfin.local`)"
+      entrypoints:
+        - web
+      service: jellyfin
+
+    radarr:
+      rule: "Host(`radarr.local`)"
+      entrypoints:
+        - web
+      service: radarr
+
+    sonarr:
+      rule: "Host(`sonarr.local`)"
+      entrypoints:
+        - web
+      service: sonarr
+
+    prowlarr:
+      rule: "Host(`prowlarr.local`)"
+      entrypoints:
+        - web
+      service: prowlarr
+
+    qbittorrent:
+      rule: "Host(`qbittorrent.local`)"
+      entrypoints:
+        - web
+      service: qbittorrent
+
+  services:
+    traefik:
+      loadBalancer:
+        servers:
+          - url: "http://traefik:8080"
+
+    jellyfin:
+      loadBalancer:
+        servers:
+          - url: "http://jellyfin:8096"
+
+    radarr:
+      loadBalancer:
+        servers:
+          - url: "http://radarr:7878"
+
+    sonarr:
+      loadBalancer:
+        servers:
+          - url: "http://sonarr:8989"
+
+    prowlarr:
+      loadBalancer:
+        servers:
+          - url: "http://prowlarr:9696"
+
+    qbittorrent:
+      loadBalancer:
+        servers:
+          - url: "http://qbittorrent:8080"
